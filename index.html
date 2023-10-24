@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Examen JS - Événement & DOM</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="assets/logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="assets/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="size1 flex-w flex-c-m p-t-20 p-b-55 p-l-15 p-r-15">
+		<div class="wsize1 bor1 bg1 p-b-45 p-l-15 p-r-15 p-t-20 respon1">
+			<p class="txt-center m1-txt1 p-t-33 p-b-68">
+				Examen JS - Événement & DOM
+			</p>
+      <div class="alert alert-info text-justify">
+          <p>
+              Le formulaire ci dessous permet d'enregistrer des transactions.
+              <br>
+              Lorsque vous cliquez sur le bouton "Ajouter la transaction", deux types de traitements doivent s'effectuer.
+          </p>
+          <p class="p-t-10">
+              <span class="font-weight-bold">Premièrement</span>, une série de tests doit être effectuée :
+          </p>
+          <ul class="p-l-50">
+              <li>
+                  Vérifier que tous les champs sont renseignés
+              </li>
+              <li>
+                Le champ de description sera facultatif, mais les champs nom et prix seront obligatoires et devront donc être vérifié.
+              </li>
+              <li>
+                  Vérifier la validité du format du nom, il ne peux contenir que des lettres, la première lettre doit être en majuscule et les autres lettre en minuscule.
+              </li>
+              <li>
+                  Vérifier la validité du format du prix, il ne peut contenir que des nombres soit à 2 virgules soit sans virgule ainsi qu'un + ou un - juste avant le nombre seuelemnt (voir exemple dans le tableau tirelire)
+              </li>
+          </ul>
+          <br>
+          <p>
+            Faites en sorte que lorsqu’un élément de formulaire n’est pas valide, un avertissement rouge s'affiche.
+          </p>
+          <p class="p-t-10">
+              <span class="font-weight-bold">Dans un second temps</span>, et si les vérifications précédentes sont valides, vous devez récupérer la valeur de chacun des champs renseignés une fois le formulaire envoyé, pour les afficher dans votre tirelire. 
+          </p>
+          <p class="p-t-10">
+              <span class="font-weight-bold">Ensuite</span>, vous devrez : 
+          </p>
+          <ul class="p-l-50">
+            <li>
+              Faire en sorte que lorsque l'utilisateur clique sur une croix, l’entrée correspondante dans le tableau est supprimée.
+            </li>
+            <li>
+              Faire en sorte que lorsqu’une entrée est supprimée du tableau, la somme totale est automatiquement mise à jour.
+            </li>
+          </ul>
+          <p class="p-t-10">
+            Assurez-vous que : le formulaire est effacé pour la saisie suivante, la somme totale est mise à jour, la croix est fonctionnelle dans l’entrée que vous venez d’ajouter.
+          </p>
+          <p class="p-t-10 font-weight-bold">
+              Remarques :
+          </p>
+          <ul class="p-l-50">
+            <li>
+                Votre code Javascript doit être inséré de manière <span class="font-weight-bold">non intrusive</span> (pas de code directement dans les balises HTML)
+            </li>
+            <li>
+                Ne vous fiez pas aux validations effectuées par le navigateur sur les types de champs HTML5. Vous devez coder les validations vous-même, en JavaScript.
+            </li>
+            <li>
+              Vous n'avez le droit à aucun framework, ni librairie en dehors de Bootstrap !
+            </li>
+            <li>
+                <span class="font-weight-bold">Vous n'avez pas le droit de modifier le code HTML du formulaire</span> (pas d'ajout de class ou d'id sur des élements)    
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class='p-3'>
+    <h1 class='mb-5 text-center'>Ma tirelire</h1>
+    <div class="row">
+      <div class='col-sm-8 offset-2'>
+        <table class="table">
+          <caption>Total: </caption>
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Description</th>
+              <th scope="col">Prix</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ticket de loto</td>
+              <td></td>
+              <td data-price>+20</td>
+              <td><a class='text-danger' href='#' data-delete>X</a></td>
+            </tr>
+            <tr>
+              <td>Bières</td>
+              <td>En soirée</td>
+              <td data-price>-15</td>
+              <td><a class='text-danger' href='#' data-delete>X</a></td>
+            </tr>
+            <tr>
+              <td>Forfait de téléphone</td>
+              <td>Février 2023</td>
+              <td data-price>-9,99</td>
+              <td><a class='text-danger' href='#' data-delete>X</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr class='my-5'/>
+        <h2 class='text-center'>Ajouter une nouvelle transaction</h2>
+
+        <form novalidate id='form-expense'>
+          
+          <div class="form-group">
+            <label for="inputAddress">Nom</label>
+            <input type="text" class="form-control" id="input_name">
+          </div>
+
+          <div class="form-group">
+            <label for="inputAddress">Description</label>
+            <textarea class="form-control" id="input_desc"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="inputAddress">Prix</label>
+            <input class="form-control" id="input_price">
+          </div>
+
+          <div class='d-flex justify-content-end'>
+            <button type="submit" class="btn btn-success">Ajouter la transaction</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
