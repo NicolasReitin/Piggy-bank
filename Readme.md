@@ -1,9 +1,9 @@
-### Consigne : 
+# Consigne : 
 
 Le formulaire ci dessous permet d'enregistrer des transactions.
 Lorsque vous cliquez sur le bouton "Ajouter la transaction", deux types de traitements doivent s'effectuer.
 
-## Premièrement, une série de tests doit être effectuée :
+### Premièrement, une série de tests doit être effectuée :
 
 - Vérifier que tous les champs sont renseignés
 - Le champ de description sera facultatif, mais les champs nom et prix seront obligatoires et devront donc être vérifié.
@@ -11,7 +11,7 @@ Lorsque vous cliquez sur le bouton "Ajouter la transaction", deux types de trait
 - Vérifier la validité du format du prix, il ne peut contenir que des nombres soit à 2 virgules soit sans virgule ainsi qu'un + ou un - juste avant le nombre seuelemnt (voir exemple dans le tableau tirelire)
 - Faites en sorte que lorsqu’un élément de formulaire n’est pas valide, un avertissement rouge s'affiche.
 
-## Dans un second temps, et si les vérifications précédentes sont valides, vous devez récupérer la valeur de chacun des champs renseignés une fois le formulaire envoyé, pour les afficher dans votre tirelire.
+### Dans un second temps, et si les vérifications précédentes sont valides, vous devez récupérer la valeur de chacun des champs renseignés une fois le formulaire envoyé, pour les afficher dans votre tirelire.
 
 Ensuite, vous devrez :
 
